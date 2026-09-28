@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package solutionhub;
+
+option csharp_namespace = "SolutionHub";
+option go_package = "gmhelper.solution-hub/proto;proto";
+
+service SolutionHub {
+  rpc SolveProblem (SolveProblemRequest) returns (SolveProblemResponse);
+}
+
+message SolveProblemRequest {
+  string task_id = 1;
+  string problem_type = 2;
+  string payload = 3;
+  string user_id = 4;
+}
+
+message SolveProblemResponse {
+  string task_id = 1;
+  string status = 2;
+  string result = 3;
+  bool success = 4;
+}
